@@ -1,0 +1,20 @@
+.friend-item {
+    display: inline-block;
+    width: 30%;
+    
+}
+
+#form-body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+input, #add-button {
+    margin-left: 5px;
+}
+
+li {
+    list-style-type: none;
+    display: flex;
+}

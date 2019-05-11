@@ -12,9 +12,19 @@ class Friends extends React.Component {
             {name: 'Palmer', phone: '999-888-7777', address: '987 Nowhere St'}
         ]}
     }
+
+    deleteFriend = (e) => {
+        console.log(e.target.id)
+        const newState = this.state.friends.filter(friend => {
+            return friend.name !== e.target.id
+        })
+        console.log(newState)
+        this.setState({friends: [...newState]})
+    } 
+    
     render() {
         const friendsHTML = this.state.friends.map(friend => 
-            <Friend key={friend.name} name={friend.name} phone={friend.phone} address={friend.address}/>
+            <Friend key={friend.name} name={friend.name} phone={friend.phone} address={friend.address} removeFriend={this.deleteFriend} id={friend.phone}/>
         )
         const addFriend = () => {
             const name = document.getElementById('name').value
@@ -27,6 +37,8 @@ class Friends extends React.Component {
             }
             this.setState({friends: [...this.state.friends, newFriend]})
         }
+        
+
         return (
             <div id="friends-body">{friendsHTML}
 
